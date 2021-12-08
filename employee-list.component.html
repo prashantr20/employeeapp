@@ -1,0 +1,38 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+       <h2 style="color: aliceblue;">Employee dashboard</h2>
+    </div>
+    <div>
+        <form>
+            <input type="text" name="employeeName" [(ngModel)]="model.employeeName" placeholder="name">
+            <input type="text" name="employeeEmail"[(ngModel)]="model.employeeEmail" placeholder="email">
+            <input type="text" name="employeePhoneNo"[(ngModel)]="model.employeePhoneNo" placeholder="phone no">
+            <input type="hidden" name="listid" [(ngModel)]="model.listid">
+            <button type="submit" (click)="editData()">Edit</button>
+            <button type="submit" (click)="addEmployee(employeeList)" (click)="editData()">Add</button>
+        </form>
+    </div>
+</nav>
+<table class="table mt-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name of Employees</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone no</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let list of employeeList" >
+            <td>{{list.id}}</td>
+            <td>{{list.name}}</td>
+            <td>{{list.email}}</td>
+            <td>{{list.phone}}</td>
+            <td><span><button (click)="editEmployeeList(list.id)">Edit</button><button (click)="deleteEmployeeList(list.id)">Delete</button></span></td>
+        </tr>
+    </tbody>
+</table>
+
+  
